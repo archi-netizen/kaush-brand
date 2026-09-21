@@ -47,3 +47,12 @@ fb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')step(-1);if(e.k
 var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(draw,200)});
 var started=false;function init(){if(started)return;started=true;load('/assets/pdf.min.js',function(){pdfjsLib.GlobalWorkerOptions.workerSrc='/assets/pdf.worker.min.js';pdfjsLib.getDocument(url).promise.then(function(d){pdf=d;draw()}).catch(function(){stage.innerHTML='<p>The flipbook could not be loaded. <a href="'+url+'">Open the PDF</a>.</p>'})})}
 if('IntersectionObserver'in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();init()}},{rootMargin:'300px'}).observe(fb)}else init();})();
+
+/* Courses: register-interest panel */
+(function(){var b=document.getElementById('ri-btn'),p=document.getElementById('ri-panel');if(!b||!p)return;
+b.addEventListener('click',function(){var o=p.hidden;p.hidden=!o;b.setAttribute('aria-expanded',o)});
+var c=document.getElementById('ri-copy'),ok=document.getElementById('ri-ok');if(!c)return;
+c.addEventListener('click',function(){var t=c.getAttribute('data-email');
+function done(m){ok.textContent=m;setTimeout(function(){ok.textContent=''},2500)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done('Copied ✓')},function(){fb()})}else fb();
+function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done('Copied ✓')}catch(e){done('Press Ctrl+C to copy: '+t)}document.body.removeChild(a)}})})();
