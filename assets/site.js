@@ -155,10 +155,9 @@ new IntersectionObserver(function(e){live=e[0].isIntersecting},{threshold:.1}).o
 st.addEventListener('pointermove',function(e){var p=rel(e);mx=p[0];my=p[1]});st.addEventListener('pointerleave',function(){mx=my=null});
 if(m==='esc'){var lim=function(){return [W/2-70,H/2-45]};
  (function f(){if(live){var l=lim();if(mx!=null){var dx=x-mx,dy=y-my,d=Math.hypot(dx,dy)||1;if(d<150){var k=(150-d)/150*2.2;vx+=dx/d*k;vy+=dy/d*k}}vx+=(0-x)*.004;vy+=(0-y)*.004;vx*=.9;vy*=.9;x=clamp(x+vx,-l[0],l[0]);y=clamp(y+vy,-l[1],l[1]);put(1,1,vx*2)}requestAnimationFrame(f)})()}
-if(m==='sqz'){var down=false,t0=0,sq=1;
- el.addEventListener('pointerdown',function(e){down=true;t0=performance.now();try{el.setPointerCapture(e.pointerId)}catch(_){}});
- function up(){if(!down)return;down=false;vx=(1-sq)*.7}el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
- var sv=0,sqv=1;(function f(){if(live){if(down){sqv=Math.max(.42,sqv-.018)}else{sv+=(1-sqv)*.14;sv*=.82;sqv+=sv}sq=sqv;put(1+(1-sqv)*.9,sqv,0)}requestAnimationFrame(f)})()}
+if(m==='sqz'){var tx=0,ty=0,ex=0,ey=0,evx=0,evy=0,sp=0,ang=0,pv=0,pvv=0;
+ st.addEventListener('pointerdown',function(){pvv+=.9});
+ (function f(){if(live){var gx=mx!=null?mx*.45:0,gy=my!=null?my*.45:0;evx+=(gx-ex)*.045;evy+=(gy-ey)*.045;evx*=.86;evy*=.86;var ox=ex,oy=ey;ex+=evx;ey+=evy;x=ex;y=ey;var v=Math.hypot(ex-ox,ey-oy);sp+=(v-sp)*.2;if(v>.15)ang=Math.atan2(ey-oy,ex-ox);pvv+=(0-pv)*.12;pvv*=.84;pv+=pvv;var st_=Math.min(.55,sp*.05)+pv*.35,a=ang*180/Math.PI;el.style.transform='translate('+x+'px,'+y+'px) rotate('+a+'deg) scale('+(1+st_)+','+(1-st_*.7)+') rotate('+(-a)+'deg)'}requestAnimationFrame(f)})()}
 if(m==='zg'){x=0;y=0;vx=.35;vy=-.25;var r=0,rv=.12;
  st.addEventListener('pointerdown',function(e){var p=rel(e),dx=x-p[0],dy=y-p[1],d=Math.hypot(dx,dy)||1;vx+=dx/d*1.6;vy+=dy/d*1.6;rv+=(dx>0?1:-1)*.25});
  (function f(){if(live){var lx=W/2-65,ly=H/2-45;x+=vx;y+=vy;r+=rv;if(x>lx||x<-lx){vx*=-1;x=clamp(x,-lx,lx)}if(y>ly||y<-ly){vy*=-1;y=clamp(y,-ly,ly)}var s=Math.hypot(vx,vy);if(s>1.1){vx*=.995;vy*=.995}rv*=.998;put(1,1,r)}requestAnimationFrame(f)})()}
