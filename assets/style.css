@@ -570,3 +570,10 @@ html.sr-on .sr.vis{opacity:1;transform:none}
 .hero .mark-bg{width:min(40vw,720px)!important;height:auto!important;right:2vw!important;top:46%}
 .hero{min-height:calc(100vh - 66px - 70px)}
 @media(max-width:820px){.hero .mark-bg{width:78vw!important;right:-18vw!important;opacity:.35!important}}
+
+.hero{--hbt:#08090F}.hero .btn.btn-acid{color:var(--hbt)!important}.hero .btn.btn-acid:hover{background:var(--hf);border-color:var(--hf);color:var(--hb)!important}
+.hero .mark-bg{pointer-events:auto!important;cursor:pointer;animation:mkf 7s ease-in-out infinite}.hero .mark-bg.spin{animation:mks .8s cubic-bezier(.22,1,.36,1)}
+@keyframes mkf{0%,100%{translate:0 0}50%{translate:0 -14px}}@keyframes mks{from{rotate:0deg}to{rotate:360deg}}
+@media(prefers-reduced-motion:reduce){.hero .mark-bg{animation:none}}
+.hp-hint{font:500 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-left:10px}
+.hero a.btn.btn-acid{color:var(--hbt)!important}.hero a.btn.btn-acid:hover{color:var(--hb)!important;background:var(--hf);border-color:var(--hf)}

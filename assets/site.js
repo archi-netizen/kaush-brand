@@ -113,7 +113,12 @@ var v=null;try{v=localStorage.getItem('carrot')}catch(e){}var m=null;bs.forEach(
 
 /* Home hero colours */
 (function(){var h=document.querySelector('.hero');if(!h)return;var bs=h.querySelectorAll('.hp');if(!bs.length)return;
-function set(b){h.style.setProperty('--hb',b.dataset.bg);h.style.setProperty('--mk',b.dataset.mk);h.style.setProperty('--hf',b.dataset.fg);h.style.setProperty('--hu',b.dataset.u);bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});try{localStorage.setItem('heroTheme',b.dataset.bg)}catch(e){}}
+function set(b){h.style.setProperty('--hb',b.dataset.bg);h.style.setProperty('--mk',b.dataset.mk);h.style.setProperty('--hf',b.dataset.fg);h.style.setProperty('--hu',b.dataset.u);h.style.setProperty('--hbt',b.dataset.bg==='#C8FF00'?'#C8FF00':'#08090F');bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});try{localStorage.setItem('heroTheme',b.dataset.bg)}catch(e){}}
 bs.forEach(function(b){b.addEventListener('click',function(){set(b)})});
 var v=null;try{v=localStorage.getItem('heroTheme')}catch(e){}var m=null;bs.forEach(function(b){if(b.dataset.bg===v)m=b});set(m||bs[0]);
 var mk=h.querySelector('.mark-bg');if(mk&&window.matchMedia&&matchMedia('(hover: hover)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){h.addEventListener('mousemove',function(e){var r=h.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;mk.style.transform='translate('+(x*-30)+'px,calc(-50% + '+(y*-24)+'px)) rotate('+(x*3)+'deg)'})}})();
+
+/* Hero mark: click to change colours */
+(function(){var h=document.querySelector('.hero'),mk=h&&h.querySelector('.mark-bg');if(!mk)return;var bs=[].slice.call(h.querySelectorAll('.hp'));mk.setAttribute('role','button');mk.setAttribute('tabindex','0');mk.setAttribute('aria-label','Change the colours');
+function go(){var i=bs.findIndex(function(b){return b.getAttribute('aria-pressed')==='true'});bs[(i+1)%bs.length].click();mk.classList.remove('spin');void mk.getBoundingClientRect();mk.classList.add('spin')}
+mk.addEventListener('click',go);mk.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})})();
