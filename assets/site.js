@@ -134,3 +134,27 @@ var li=document.getElementById('mkp-li'),ls=JSON.parse(li.getAttribute('data-p')
 svg.addEventListener('mousemove',function(e){var r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;li.style.transform='translate('+(x*-120)+'px,'+(y*-80)+'px)'});
 document.getElementById('mkp-ln').addEventListener('click',function(){j=(j+1)%ls.length;li.setAttribute('href',ls[j])});
 svg.addEventListener('click',function(){j=(j+1)%ls.length;li.setAttribute('href',ls[j])})})();
+
+/* Brand system: six moods of the mark (gentle, respects reduced motion) */
+(function(){var grid=document.querySelector('.mps-g');if(!grid)return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+grid.querySelectorAll('.mps').forEach(function(card){var m=card.getAttribute('data-m'),st=card.querySelector('.mps-s'),el=card.querySelector('.mps-m'),W=0,H=0,x=0,y=0,vx=0,vy=0,live=false,mx=null,my=null;
+function size(){var r=st.getBoundingClientRect();W=r.width;H=r.height}size();window.addEventListener('resize',size);
+function rel(e){var r=st.getBoundingClientRect();return [e.clientX-r.left-W/2,e.clientY-r.top-H/2]}
+function put(sx,sy,rot){el.style.transform='translate('+x+'px,'+y+'px) scale('+(sx||1)+','+(sy==null?(sx||1):sy)+') rotate('+(rot||0)+'deg)'}
+new IntersectionObserver(function(e){live=e[0].isIntersecting},{threshold:.1}).observe(st);
+st.addEventListener('pointermove',function(e){var p=rel(e);mx=p[0];my=p[1]});st.addEventListener('pointerleave',function(){mx=my=null});
+if(m==='esc'){var lim=function(){return [W/2-70,H/2-45]};
+ (function f(){if(live){var l=lim();if(mx!=null){var dx=x-mx,dy=y-my,d=Math.hypot(dx,dy)||1;if(d<150){var k=(150-d)/150*2.2;vx+=dx/d*k;vy+=dy/d*k}}vx+=(0-x)*.004;vy+=(0-y)*.004;vx*=.9;vy*=.9;x=clamp(x+vx,-l[0],l[0]);y=clamp(y+vy,-l[1],l[1]);put(1,1,vx*2)}requestAnimationFrame(f)})()}
+if(m==='sqz'){var down=false,t0=0,sq=1;
+ el.addEventListener('pointerdown',function(e){down=true;t0=performance.now();try{el.setPointerCapture(e.pointerId)}catch(_){}});
+ function up(){if(!down)return;down=false;vx=(1-sq)*.7}el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
+ var sv=0,sqv=1;(function f(){if(live){if(down){sqv=Math.max(.42,sqv-.018)}else{sv+=(1-sqv)*.14;sv*=.82;sqv+=sv}sq=sqv;put(1+(1-sqv)*.9,sqv,0)}requestAnimationFrame(f)})()}
+if(m==='zg'){x=0;y=0;vx=.35;vy=-.25;var r=0,rv=.12;
+ st.addEventListener('pointerdown',function(e){var p=rel(e),dx=x-p[0],dy=y-p[1],d=Math.hypot(dx,dy)||1;vx+=dx/d*1.6;vy+=dy/d*1.6;rv+=(dx>0?1:-1)*.25});
+ (function f(){if(live){var lx=W/2-65,ly=H/2-45;x+=vx;y+=vy;r+=rv;if(x>lx||x<-lx){vx*=-1;x=clamp(x,-lx,lx)}if(y>ly||y<-ly){vy*=-1;y=clamp(y,-ly,ly)}var s=Math.hypot(vx,vy);if(s>1.1){vx*=.995;vy*=.995}rv*=.998;put(1,1,r)}requestAnimationFrame(f)})()}
+if(m==='jmp'){var busy=false;function jump(){if(busy)return;busy=true;el.style.animation='mpj 1s cubic-bezier(.3,.1,.3,1) 1';setTimeout(function(){el.style.animation='';busy=false},1020)}
+ el.addEventListener('click',jump);st.addEventListener('click',jump);el.style.setProperty('--x','0px');el.style.setProperty('--y','0px')}
+if(m==='shr'){var sc=1;(function f(){if(live){var t=1;if(mx!=null){var d=Math.hypot(mx,my);t=clamp(.22+d/190,.22,1.25)}else t=1;sc+=(t-sc)*.09;put(sc,sc,0)}requestAnimationFrame(f)})()}
+if(m==='lk'){var rx=0,ry=0;st.style.perspective='700px';(function f(){if(live){var tx=0,ty=0;if(mx!=null){ty=clamp(mx/(W/2),-1,1)*32;tx=clamp(-my/(H/2),-1,1)*24}rx+=(tx-rx)*.1;ry+=(ty-ry)*.1;el.style.transform='rotateX('+rx+'deg) rotateY('+ry+'deg)'}requestAnimationFrame(f)})()}
+})})();
