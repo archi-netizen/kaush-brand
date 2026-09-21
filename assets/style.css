@@ -587,3 +587,4 @@ html.sr-on .sr.vis{opacity:1;transform:none}
 .at-hero{transition:background-color 1.6s ease,color 1.6s ease}
 .hp-b{display:flex;align-items:flex-start;gap:8px}.hp-3{position:relative;display:flex;gap:8px;padding-bottom:22px}.hp-3 em{position:absolute;left:0;right:0;bottom:0;font:500 10px/1 var(--sans);font-style:normal;letter-spacing:.08em;text-transform:uppercase;text-align:center;white-space:nowrap;opacity:.8;border-top:1px solid currentColor;padding-top:5px}.hp-row{align-items:flex-start}.hp-row>span{padding-top:9px}
 .hero{padding-bottom:clamp(64px,7vw,110px)!important}
+.hero .mark-bg,.hero .mark-bg.spin{animation:none!important;pointer-events:none!important;cursor:auto}
