@@ -56,3 +56,14 @@ c.addEventListener('click',function(){var t=c.getAttribute('data-email');
 function done(m){ok.textContent=m;setTimeout(function(){ok.textContent=''},2500)}
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done('Copied ✓')},function(){fb()})}else fb();
 function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done('Copied ✓')}catch(e){done('Press Ctrl+C to copy: '+t)}document.body.removeChild(a)}})})();
+
+/* Mirror Lab: before/after sliders + lightbox */
+(function(){document.querySelectorAll('.ba input').forEach(function(r){var b=r.parentNode;function u(){b.style.setProperty('--p',r.value+'%')}r.addEventListener('input',u);u()});
+var lb=document.getElementById('lb');if(!lb)return;var imgs=[].slice.call(document.querySelectorAll('.mg-i img')),i=0,im=lb.querySelector('img');
+function show(k){i=(k+imgs.length)%imgs.length;im.src=imgs[i].src;im.alt=imgs[i].alt}
+function open_(k){show(k);lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus()}
+function close_(){lb.hidden=true;document.body.style.overflow=''}
+imgs.forEach(function(g,k){g.parentNode.addEventListener('click',function(){open_(k)})});
+lb.querySelector('.lb-x').addEventListener('click',close_);lb.querySelector('.lb-p').addEventListener('click',function(){show(i-1)});lb.querySelector('.lb-n').addEventListener('click',function(){show(i+1)});
+lb.addEventListener('click',function(e){if(e.target===lb)close_()});
+document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close_();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});})();
