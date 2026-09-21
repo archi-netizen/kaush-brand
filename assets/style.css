@@ -363,3 +363,38 @@ html.sr-on .sr.vis{opacity:1;transform:none}
 @media (hover:hover) and (pointer:fine){html.cur-on,html.cur-on a,html.cur-on button,html.cur-on label,html.cur-on summary,html.cur-on input[type=range]{cursor:none!important}html.cur-on input:not([type=range]),html.cur-on textarea,html.cur-on select{cursor:text!important}}
 @media (hover:none),(pointer:coarse){#cur,#curR{display:none}}
 @media (prefers-reduced-motion:reduce){.hero-in>*:not(.mark-bg){animation:none}.hero::after{animation:none}html.sr-on .sr{opacity:1;transform:none;transition:none}}
+/* flipbook fixes + fullscreen */
+.flip-stage{min-height:0}.flip-stage .pg{position:relative;line-height:0;flex:0 1 auto}
+.flip-stage canvas{box-shadow:none!important;display:block}
+.flip-stage .pg-l::after,.flip-stage .pg-r::before{content:"";position:absolute;top:0;bottom:0;width:8%;pointer-events:none}
+.flip-stage .pg-l::after{right:0;background:linear-gradient(to right,transparent,rgba(8,9,15,.22))}
+.flip-stage .pg-r::before{left:0;background:linear-gradient(to left,transparent,rgba(8,9,15,.22))}
+.flip-stage .pg:only-child{box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.flip-bar .flip-fs{width:auto;height:44px;padding:0 18px;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-left:12px}
+.flip:fullscreen,.flip.flip-full{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:16px;overflow:auto}
+.flip.flip-full{position:fixed;inset:0;z-index:2000;margin:0;width:auto!important}
+.flip:fullscreen .flip-stage,.flip.flip-full .flip-stage{flex:1;align-items:center}
+/* aureum */
+.au-hero{position:relative;min-height:min(92vh,880px);display:flex;align-items:flex-end;color:#fff;background:linear-gradient(180deg,rgba(8,9,15,.35),rgba(8,9,15,.88)),var(--bg) center/cover no-repeat;overflow:hidden}
+.au-hero-in{padding-top:120px;padding-bottom:clamp(40px,6vw,90px)}
+.au-k{font:500 12px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#D9BC7C;margin:0 0 14px}
+.au-t{font:400 clamp(72px,17vw,280px)/.82 var(--display);letter-spacing:-.03em;margin:0;color:#fff;max-width:none}
+.au-x{font:300 clamp(18px,2.2vw,32px) var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#D9BC7C;margin:16px 0 4px}
+.au-s{font:italic 400 clamp(20px,2.4vw,34px) var(--display);color:rgba(255,255,255,.9)}
+.au-hero .btn{border-color:rgba(255,255,255,.7);color:#fff}.au-hero .btn:hover{background:#fff;color:var(--ink)}
+.au-hero .au-btn{background:#D9BC7C;border-color:#D9BC7C;color:var(--ink)}.au-hero .au-btn:hover{background:#fff;border-color:#fff}
+.au-note{border:1.5px solid #B8975A;border-left-width:8px;background:#FBF7EE;padding:18px 22px;margin-bottom:28px;font-size:15px}
+.au-duo{display:grid;grid-template-columns:1fr 1fr}.au-duo>div{padding:clamp(48px,8vw,130px) var(--gut);min-height:min(60vh,520px);display:flex;flex-direction:column;justify-content:flex-end}
+.au-duo h2{font:400 clamp(48px,9vw,150px)/.85 var(--display);letter-spacing:-.03em;margin:0 0 18px}
+.au-a{background:var(--ink);color:#fff}.au-a h2{color:#fff}.au-a .au-k{color:var(--acid)}
+.au-b{background:#F1EADB;color:var(--ink)}.au-b .au-k{color:#8A6D2F}
+.au-duo p:last-child{font-size:clamp(16px,1.5vw,21px);max-width:26ch}
+.au-quote{background:#B8975A;color:var(--ink);padding:clamp(56px,9vw,140px) 0}.au-quote blockquote{margin:0;border:0;padding:0;max-width:none}
+.au-quote p{font:400 clamp(36px,6.4vw,104px)/1.02 var(--display);letter-spacing:-.02em;margin:0;max-width:none}.au-quote em{font-style:italic;color:#fff}
+.aphs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.aph{background:#fff;padding:26px 24px 30px}.aph b{font:400 64px/1 var(--display);color:#B8975A;display:block}.aph h3{margin:14px 0 8px;font-size:23px}.aph p{font-size:15px;color:var(--mid)}
+.mos{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,20vw,290px);gap:8px;margin-top:28px}
+.mo .mg-i{aspect-ratio:auto;height:100%}.mo{min-height:0}.mo.lg{grid-column:span 2;grid-row:span 2}.mo.tall{grid-row:span 2}.mo.wide{grid-column:span 2}
+.au-i img{transition:transform .9s cubic-bezier(.22,1,.36,1)}.au-i:hover img{transform:scale(1.08)}
+@media(max-width:900px){.au-duo{grid-template-columns:1fr}.aphs{grid-template-columns:1fr 1fr}.mos{grid-template-columns:1fr 1fr}.mo.lg,.mo.wide{grid-column:span 2}}
+@media(max-width:560px){.aphs{grid-template-columns:1fr}}
