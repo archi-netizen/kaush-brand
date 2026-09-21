@@ -91,3 +91,6 @@ var mx=-50,my=-50,rx=-50,ry=-50,DARK='.dark,.phero,.bar,.foot,.hero-dark,.mp-ink
 document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;d.style.left=mx+'px';d.style.top=my+'px';var t=e.target;de.classList.toggle('cur-dark',!!(t.closest&&t.closest(DARK)));de.classList.toggle('cur-hov',!!(t.closest&&t.closest('a,button,label,summary,input[type=range]')))},{passive:true});
 document.addEventListener('mouseleave',function(){d.style.opacity=0;r.style.opacity=0});document.addEventListener('mouseenter',function(){d.style.opacity=1;r.style.opacity=1});
 (function loop(){rx+=(mx-rx)*(rm?1:.1);ry+=(my-ry)*(rm?1:.1);r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(loop)})();})();
+
+/* reading progress */
+(function(){var p=document.querySelector('.rd-prog');if(!p)return;function u(){var h=document.documentElement,t=h.scrollHeight-innerHeight;p.style.width=(t>0?Math.min(100,scrollY/t*100):0)+'%'}addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u()})();
