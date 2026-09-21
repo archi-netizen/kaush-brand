@@ -94,3 +94,7 @@ document.addEventListener('mouseleave',function(){d.style.opacity=0;r.style.opac
 
 /* reading progress */
 (function(){var p=document.querySelector('.rd-prog');if(!p)return;function u(){var h=document.documentElement,t=h.scrollHeight-innerHeight;p.style.width=(t>0?Math.min(100,scrollY/t*100):0)+'%'}addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u()})();
+
+/* Le Corbusier: copy colour */
+(function(){var ts=document.querySelectorAll('.lc-t'),ok=document.getElementById('lc-ok');if(!ts.length)return;ts.forEach(function(b){b.addEventListener('click',function(){var h=b.getAttribute('data-hex').toUpperCase();function d(){if(ok){ok.textContent='Copied '+h;setTimeout(function(){ok.textContent=''},2000)}}
+if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(h).then(d,d);else{var a=document.createElement('textarea');a.value=h;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a);d()}})})})();
