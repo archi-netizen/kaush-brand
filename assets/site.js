@@ -67,3 +67,21 @@ imgs.forEach(function(g,k){g.parentNode.addEventListener('click',function(){open
 lb.querySelector('.lb-x').addEventListener('click',close_);lb.querySelector('.lb-p').addEventListener('click',function(){show(i-1)});lb.querySelector('.lb-n').addEventListener('click',function(){show(i+1)});
 lb.addEventListener('click',function(e){if(e.target===lb)close_()});
 document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close_();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});})();
+
+/* Cursor + slow reveal (from the original site) */
+(function(){var de=document.documentElement,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* reveal */
+if('IntersectionObserver' in window){
+var sel='main .wrap > .kick, main .wrap > h2, main .wrap > .lead, main .wrap > p, main .wrap > .facts, main .split-h, main .prose > *, .card, .svc, .bk, .tk, .f3, .mvc, .mc, .fl, .step, .ms, .fact, .course, .sm-c, .feat > *, .grid3 > *, .mg li, .pans li, .phones li, .msteps > *, .tks > *, .callout, .korp';
+var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero,.phero,.flip,.lb,.ss,.ba,.chips-row,.filters')});
+els.forEach(function(e){e.classList.add('sr')});de.classList.add('sr-on');
+var obs=new IntersectionObserver(function(en){var n=0;en.forEach(function(x){if(x.isIntersecting){var t=x.target;setTimeout(function(){t.classList.add('vis')},(n++%5)*90);obs.unobserve(t)}})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+els.forEach(function(e){obs.observe(e)});
+setTimeout(function(){document.querySelectorAll('.sr:not(.vis)').forEach(function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)e.classList.add('vis')})},2500);}
+/* cursor */
+if(!(window.matchMedia&&matchMedia('(hover: hover) and (pointer: fine)').matches))return;
+var d=document.createElement('div');d.id='cur';var r=document.createElement('div');r.id='curR';d.setAttribute('aria-hidden','true');r.setAttribute('aria-hidden','true');document.body.appendChild(r);document.body.appendChild(d);de.classList.add('cur-on');
+var mx=-50,my=-50,rx=-50,ry=-50,DARK='.dark,.phero,.bar,.foot,.hero-dark,.mp-ink,.tks,.step,.korp,.lb,.ms-ink,.callout.dark';
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;d.style.left=mx+'px';d.style.top=my+'px';var t=e.target;de.classList.toggle('cur-dark',!!(t.closest&&t.closest(DARK)));de.classList.toggle('cur-hov',!!(t.closest&&t.closest('a,button,label,summary,input[type=range]')))},{passive:true});
+document.addEventListener('mouseleave',function(){d.style.opacity=0;r.style.opacity=0});document.addEventListener('mouseenter',function(){d.style.opacity=1;r.style.opacity=1});
+(function loop(){rx+=(mx-rx)*(rm?1:.1);ry+=(my-ry)*(rm?1:.1);r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(loop)})();})();

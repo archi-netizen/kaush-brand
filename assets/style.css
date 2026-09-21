@@ -337,3 +337,29 @@ h4{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.14em;t
 .phones li{flex:0 0 220px}.phones .mg-i{aspect-ratio:auto;background:#fff;border-radius:22px}.phones img{width:100%;height:auto;object-fit:contain;border-radius:22px}
 @media(max-width:1100px){.mvcs{grid-template-columns:repeat(3,minmax(0,1fr))}.mv-a{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.mvcs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* ---- light home hero (as on the original site) ---- */
+.hero{background:#fff;color:var(--ink);min-height:calc(100vh - 66px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(72px,9vw,130px) 0 clamp(48px,6vw,90px)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(8,9,15,.07) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 60%,#000 30%,transparent 100%);mask-image:radial-gradient(ellipse 80% 70% at 50% 60%,#000 30%,transparent 100%);pointer-events:none}
+.hero::after{content:"";position:absolute;top:12%;right:4%;width:min(560px,70vw);aspect-ratio:1;background:radial-gradient(circle,rgba(200,255,0,.16) 0%,transparent 65%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.hero .kick{color:var(--mid);display:flex;align-items:center;gap:.9rem}.hero .kick::before{content:"";width:28px;height:1px;background:var(--lemon)}
+.hero h1{color:var(--ink)}.hero h1 em{color:var(--ink);font-style:normal;position:relative;display:inline}.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-.02em;height:.07em;background:var(--acid)}
+.hero .roles{color:var(--mid)}.hero .roles span{color:var(--lemon)}
+.hero p.sub{color:var(--mid)}
+.hero .btn{border-color:var(--ink);color:var(--ink)}.hero .btn:hover{background:var(--ink);color:#fff}
+.hero .mark-bg{opacity:.13;right:2.5vw;height:88%}
+.hero-in>*:not(.mark-bg){animation:slideUp .95s cubic-bezier(.22,1,.36,1) both}
+.hero-in>*:nth-child(2){animation-delay:.05s}.hero-in>*:nth-child(3){animation-delay:.18s}.hero-in>*:nth-child(4){animation-delay:.32s}.hero-in>*:nth-child(5){animation-delay:.46s}.hero-in>*:nth-child(6){animation-delay:.6s}
+@keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+/* ---- slow scroll reveal ---- */
+html.sr-on .sr{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+html.sr-on .sr.vis{opacity:1;transform:none}
+/* ---- cursor ---- */
+#cur,#curR{position:fixed;left:-50px;top:-50px;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);z-index:9999}
+#cur{width:6px;height:6px;background:var(--lemon);transition:width .18s,height .18s,background .2s}
+#curR{width:24px;height:24px;border:1px solid rgba(126,158,0,.5);z-index:9998;transition:width .18s,height .18s,border-color .2s}
+.cur-dark #cur{background:var(--acid)}.cur-dark #curR{border-color:rgba(200,255,0,.55)}
+.cur-hov #cur{width:10px;height:10px}.cur-hov #curR{width:34px;height:34px}
+@media (hover:hover) and (pointer:fine){html.cur-on,html.cur-on a,html.cur-on button,html.cur-on label,html.cur-on summary,html.cur-on input[type=range]{cursor:none!important}html.cur-on input:not([type=range]),html.cur-on textarea,html.cur-on select{cursor:text!important}}
+@media (hover:none),(pointer:coarse){#cur,#curR{display:none}}
+@media (prefers-reduced-motion:reduce){.hero-in>*:not(.mark-bg){animation:none}.hero::after{animation:none}html.sr-on .sr{opacity:1;transform:none;transition:none}}
