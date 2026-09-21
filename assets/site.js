@@ -98,3 +98,9 @@ document.addEventListener('mouseleave',function(){d.style.opacity=0;r.style.opac
 /* Le Corbusier: copy colour */
 (function(){var ts=document.querySelectorAll('.lc-t'),ok=document.getElementById('lc-ok');if(!ts.length)return;ts.forEach(function(b){b.addEventListener('click',function(){var h=b.getAttribute('data-hex').toUpperCase();function d(){if(ok){ok.textContent='Copied '+h;setTimeout(function(){ok.textContent=''},2000)}}
 if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(h).then(d,d);else{var a=document.createElement('textarea');a.value=h;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a);d()}})})})();
+
+/* Sitemap matrix */
+(function(){var g=document.getElementById('smg');if(!g)return;var chips=document.querySelectorAll('.chip'),tiles=[].slice.call(g.querySelectorAll('.smt')),q=document.getElementById('smq'),cnt=document.getElementById('smc'),f='all';
+function ap(){var s=(q.value||'').toLowerCase().trim(),k=0;tiles.forEach(function(t){var okc=f==='all'||(' '+t.getAttribute('data-cat')+' ').indexOf(' '+f+' ')>-1,oks=!s||t.getAttribute('data-t').indexOf(s)>-1,on=okc&&oks;t.classList.toggle('dim',!on);if(on)k++});cnt.textContent=k;chips.forEach(function(b){var on=b.getAttribute('data-f')===f;b.classList.toggle('is-on',on);b.setAttribute('aria-pressed',on)})}
+chips.forEach(function(b){b.addEventListener('click',function(){f=b.getAttribute('data-f');ap()})});q.addEventListener('input',ap);
+document.getElementById('smr').addEventListener('click',function(){var v=tiles.filter(function(t){return !t.classList.contains('dim')});var t=v[Math.floor(Math.random()*v.length)];if(t)location.href=t.getAttribute('href')});})();
