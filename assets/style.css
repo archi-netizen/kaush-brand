@@ -577,3 +577,11 @@ html.sr-on .sr.vis{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.hero .mark-bg{animation:none}}
 .hp-hint{font:500 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-left:10px}
 .hero a.btn.btn-acid{color:var(--hbt)!important}.hero a.btn.btn-acid:hover{color:var(--hb)!important;background:var(--hf);border-color:var(--hf)}
+/* gentle hero transitions (no flashing) */
+.hero{transition:background-color 1.6s ease,color 1.6s ease}
+.hero h1,.hero h1 em,.hero .kick,.hero .roles,.hero .roles span,.hero p.sub,.hero .btn,.hero .hp,.hero .hp-row span{transition:color 1.6s ease,background-color 1.6s ease,border-color 1.6s ease}
+.hero .mark-bg path{transition:fill 1.6s ease}.hero h1 em::after{transition:background-color 1.6s ease}
+.hero .mark-bg,.hero .mark-bg:focus,.hero .mark-bg:focus-visible{outline:none!important}
+.hero .mark-bg{animation:mkf 11s ease-in-out infinite}.hero .mark-bg.spin{animation:mkf 11s ease-in-out infinite}
+@keyframes mkf{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.at-hero{transition:background-color 1.6s ease,color 1.6s ease}
