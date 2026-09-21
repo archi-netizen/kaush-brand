@@ -104,3 +104,9 @@ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeT
 function ap(){var s=(q.value||'').toLowerCase().trim(),k=0;tiles.forEach(function(t){var okc=f==='all'||(' '+t.getAttribute('data-cat')+' ').indexOf(' '+f+' ')>-1,oks=!s||t.getAttribute('data-t').indexOf(s)>-1,on=okc&&oks;t.classList.toggle('dim',!on);if(on)k++});cnt.textContent=k;chips.forEach(function(b){var on=b.getAttribute('data-f')===f;b.classList.toggle('is-on',on);b.setAttribute('aria-pressed',on)})}
 chips.forEach(function(b){b.addEventListener('click',function(){f=b.getAttribute('data-f');ap()})});q.addEventListener('input',ap);
 document.getElementById('smr').addEventListener('click',function(){var v=tiles.filter(function(t){return !t.classList.contains('dim')});var t=v[Math.floor(Math.random()*v.length)];if(t)location.href=t.getAttribute('href')});})();
+
+/* Carrot colours */
+(function(){var h=document.getElementById('at-hero');if(!h)return;var bs=h.querySelectorAll('.cs');
+function set(bg,fg){h.style.setProperty('--cb',bg);h.style.setProperty('--cf',fg);bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-bg')===bg)});try{localStorage.setItem('carrot',bg)}catch(e){}}
+bs.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-bg'),b.getAttribute('data-fg'))})});
+var v=null;try{v=localStorage.getItem('carrot')}catch(e){}var m=null;bs.forEach(function(b){if(b.getAttribute('data-bg')===v)m=b});set(m?m.getAttribute('data-bg'):'#ED9121',m?m.getAttribute('data-fg'):'#08090F')})();
