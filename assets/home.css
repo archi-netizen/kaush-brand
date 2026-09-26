@@ -1,0 +1,71 @@
+/* Home page layout. Loaded after style.css, on the home page only. */
+
+/* Hero: outlined role pills and a scroll cue */
+.hero .hm-pills{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:clamp(22px,2.8vw,38px) 0 clamp(24px,3vw,44px);padding:0}
+.hero .hm-pills a{display:inline-block;padding:.5em 1.15em;border:1.5px solid currentColor;border-radius:999px;color:var(--hf);text-decoration:none;font:400 clamp(15px,1.5vw,21px)/1.2 var(--sans);transition:background .25s,color .25s,border-color .25s}
+.hero .hm-pills a:hover,.hero .hm-pills a:focus-visible{background:var(--hf);color:var(--hb);border-color:var(--hf)}
+.hero .hm-scroll{position:absolute;right:var(--gut);bottom:clamp(22px,3vw,44px);z-index:3;display:flex;align-items:flex-end;gap:14px;color:var(--hf);opacity:.75;text-decoration:none;font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.hero .hm-scroll::after{content:"";width:1px;height:56px;background:currentColor;transform-origin:top;animation:hm-line 2.4s cubic-bezier(.6,0,.2,1) infinite}
+@keyframes hm-line{0%{transform:scaleY(0)}55%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(max-width:700px){.hero .hm-scroll{display:none}}
+
+/* Statement: words light up as the section scrolls into view */
+.hm-statement{background:var(--off);padding:clamp(88px,13vw,210px) 0}
+.hm-statement .wrap{max-width:1240px}
+.hm-statement .kick{margin-bottom:clamp(22px,3vw,40px)}
+.hm-big{margin:0;color:var(--ink);font:400 clamp(30px,5.3vw,78px)/1.1 var(--display);letter-spacing:-.012em;text-wrap:balance;max-width:24ch}
+.hm-big em{font-style:normal;color:var(--lemon)}
+.hm-big .w{transition:opacity .2s linear}
+
+/* Marquee: two rows of what the practice covers, moving in opposite directions */
+.hm-marq{background:var(--ink);color:#fff;overflow:hidden;padding:clamp(30px,4.4vw,64px) 0;display:flex;flex-direction:column;gap:clamp(10px,1.8vw,26px)}
+.hm-track{display:flex;width:max-content;animation:hm-run 56s linear infinite}
+.hm-track.rev{animation-direction:reverse;animation-duration:68s}
+.hm-set{display:flex;flex:none}
+.hm-set span{display:inline-flex;align-items:center;gap:.55em;padding-right:.55em;white-space:nowrap;font:400 clamp(40px,7.2vw,108px)/1.05 var(--display)}
+.hm-set span::after{content:"";flex:none;width:.26em;height:.26em;border-radius:50%;background:var(--coral)}
+.hm-set span:nth-child(4n+2)::after{background:var(--acid)}
+.hm-set span:nth-child(4n+3)::after{background:#92C3EA}
+.hm-set span:nth-child(4n)::after{background:#529E7D}
+.hm-track.out .hm-set span{color:transparent;-webkit-text-stroke:1.5px rgba(255,253,241,.8)}
+.hm-marq:hover .hm-track{animation-play-state:paused}
+@keyframes hm-run{to{transform:translateX(-50%)}}
+
+/* Three ways in: oversized rows that fill with their discipline colour */
+.hm-ways .hm-rows{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;border-bottom:1px solid var(--line)}
+.hm-rows li{border-top:1px solid var(--line)}
+.hm-row{--acc:var(--ink);--rf:#fff;display:grid;grid-template-columns:clamp(56px,7vw,110px) minmax(0,1.2fr) minmax(0,1fr) auto;align-items:center;gap:clamp(14px,3vw,44px);padding:clamp(28px,4.6vw,68px) clamp(0px,1.4vw,22px);color:var(--ink);text-decoration:none;transition:background .35s ease,color .35s ease}
+.hm-row.brand{--acc:var(--coral);--rf:var(--ink)}
+.hm-row.courses{--acc:var(--blue);--rf:#fff}
+.hm-row.research{--acc:var(--green);--rf:#fff}
+.hm-row .n{display:flex;align-items:center;gap:10px;font:600 12px/1 var(--sans);letter-spacing:.2em}
+.hm-row .n::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:var(--acc);transition:background .35s}
+.hm-row h3{margin:0;font:400 clamp(46px,8.4vw,128px)/.95 var(--display);letter-spacing:-.015em}
+.hm-row p{margin:0;max-width:44ch;font-size:clamp(15px,1.25vw,18px);color:var(--mid);transition:color .35s}
+.hm-row .go{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.hm-row .go i{font-style:normal;display:inline-block;transition:transform .35s ease}
+.hm-row:focus-visible{outline:3px solid var(--acc);outline-offset:-3px}
+.hm-row:focus-visible,
+.hm-row:hover{background:var(--acc);color:var(--rf)}
+.hm-row:focus-visible p,.hm-row:hover p{color:inherit}
+.hm-row:focus-visible .n::before,.hm-row:hover .n::before{background:var(--rf)}
+.hm-row:focus-visible .go i,.hm-row:hover .go i{transform:translateX(9px)}
+@media(max-width:860px){
+  .hm-row{grid-template-columns:1fr auto;grid-template-areas:"n go" "h h" "p p";row-gap:14px}
+  .hm-row .n{grid-area:n}.hm-row h3{grid-area:h}.hm-row p{grid-area:p}.hm-row .go{grid-area:go}
+}
+
+/* Closing call to action */
+.sec.hm-cta{padding:clamp(88px,13vw,210px) 0 clamp(64px,9vw,140px)}
+.hm-cta .kick{color:var(--acid)}
+.hm-cta h2{margin:0;color:#fff;font:400 clamp(52px,11vw,180px)/.94 var(--display);letter-spacing:-.02em;max-width:10ch;text-wrap:balance}
+.hm-cta .lead{margin-top:clamp(22px,3vw,40px)}
+.hm-mail{display:inline-block;margin-top:clamp(26px,4vw,52px);padding-bottom:.14em;color:var(--acid);border-bottom:2px solid currentColor;text-decoration:none;font:400 clamp(22px,4.2vw,60px)/1.1 var(--display);overflow-wrap:anywhere;transition:color .25s}
+.hm-mail:hover,.hm-mail:focus-visible{color:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  .hero .hm-scroll::after{animation:none}
+  .hm-track{animation:none;width:auto;flex-wrap:wrap;padding:0 var(--gut)}
+  .hm-track .hm-set+.hm-set{display:none}
+  .hm-set{flex-wrap:wrap}
+}
