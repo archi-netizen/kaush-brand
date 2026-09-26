@@ -93,6 +93,7 @@ h4{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.14em;t
 .card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
 .card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,22,29,.08)}
 .card .ph{aspect-ratio:4/3;background:var(--off);overflow:hidden}.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .ph-course{container-type:inline-size;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--c)}.card .ph-course span{font-family:var(--display);font-weight:400;font-size:clamp(28px,13cqw,46px);line-height:1.08;color:#fff;text-wrap:balance}.ph-tax{--c:var(--blue)}.ph-brand{--c:var(--coral)}.ph-ai{--c:var(--green)}
 .card .cb{padding:20px 22px 24px}.card h3{font-size:22px;margin:0 0 8px}.card p{font-size:14.5px;color:var(--mid);margin:0}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:2em 0}
 .fact{background:#fff;padding:20px 22px}.fact b{display:block;font-family:var(--display);font-weight:400;font-size:24px}.fact span{font-size:13px;color:var(--mid)}
