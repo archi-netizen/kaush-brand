@@ -1,0 +1,27 @@
+/* Stacking cards: each card sticks a little lower than the one before, so later cards slide over earlier ones. */
+.stk{--top:88px;--step:16px;position:relative;display:flex;flex-direction:column}
+.stk-card{--bg:var(--ink);--fg:#fff;position:sticky;top:calc(var(--top) + var(--i,0) * var(--step));z-index:calc(var(--i,0) + 1);display:flex;flex-direction:column;justify-content:space-between;gap:clamp(22px,3.4vw,48px);min-height:min(68vh,560px);padding:clamp(24px,3.6vw,56px);background:var(--bg);color:var(--fg);transform-origin:50% 0;will-change:transform,filter;box-shadow:0 -14px 36px rgba(0,22,29,.22)}
+.stk-card+.stk-card{margin-top:0}
+
+.stk-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
+.stk-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.stk-tags li{padding:.36em .9em;border:1.5px solid currentColor;border-radius:999px;font:500 11.5px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.stk-n{font:400 clamp(56px,7vw,104px)/.8 var(--display);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.6px var(--fg)}
+.stk-title{margin:0;max-width:16ch;font:400 clamp(38px,6.4vw,96px)/.98 var(--display);letter-spacing:-.018em;text-wrap:balance;color:inherit}
+.stk-desc{margin:clamp(14px,1.6vw,22px) 0 0;max-width:52ch;font-size:clamp(15.5px,1.3vw,19px);line-height:1.55;color:inherit}
+.stk-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 28px}
+.stk-price{margin:0;font:400 clamp(34px,3.6vw,52px)/1 var(--display);color:inherit}
+.stk-actions{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+.stk .stk-card a.btn{margin:0;border-color:currentColor;color:inherit;background:transparent}
+.stk .stk-card a.btn:hover,.stk .stk-card a.btn:focus-visible{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.stk .stk-card a.btn.stk-solid{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.stk .stk-card a.btn.stk-solid:hover,.stk .stk-card a.btn.stk-solid:focus-visible{background:transparent;border-color:currentColor;color:inherit}
+
+/* Sticky needs a scroll container that does not clip. Chapters use overflow:hidden for their big background word, so use clip there. */
+.ch.stk-host{overflow:clip}
+.stk-after{margin-top:clamp(22px,3vw,40px)}
+
+@media(max-width:700px){
+  .stk{--top:72px;--step:12px}
+  .stk-card{min-height:min(74vh,520px)}
+}
