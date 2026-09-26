@@ -1,0 +1,24 @@
+# Cloudflare Pages headers. Not served as a page; applied to matching URLs.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# GitHub Pages sent this on every response, so keep parity for anything
+# that loads files from this domain cross-origin.
+/assets/*
+  Access-Control-Allow-Origin: *
+
+# Stylesheet and script are versioned with ?v=<hash> in every page, so a
+# change always produces a new URL and long caching is safe.
+/assets/style.css
+  Cache-Control: public, max-age=31536000, immutable
+/assets/site.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images and documents keep their filenames when edited, so revalidate daily.
+/assets/img/*
+  Cache-Control: public, max-age=86400
+/assets/docs/*
+  Cache-Control: public, max-age=86400

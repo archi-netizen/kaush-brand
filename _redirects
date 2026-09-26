@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects. www to apex is a Redirect Rule in the dashboard,
+# because _redirects cannot match on hostname.
+#
+# The old redirect stubs brand-system.html and index/index.html must be deleted
+# at cutover. With them present, Cloudflare's extensionless URLs are ambiguous
+# next to brand-system/index.html and can loop.
+/brand-system.html  /brand-system/  301
+/index.html         /               301
+/index              /               301
+/index/             /               301
