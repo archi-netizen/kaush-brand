@@ -17,6 +17,10 @@
 /assets/site.js
   Cache-Control: public, max-age=31536000, immutable
 
+# The Ockham concept app ships content-hashed filenames, so they never change.
+/ockham/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Images and documents keep their filenames when edited, so revalidate daily.
 /assets/img/*
   Cache-Control: public, max-age=86400
