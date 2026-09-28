@@ -1,1 +1,263 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Redirecting…</title><link rel="canonical" href="https://kaushambimate.com/digital-innovation/"><meta http-equiv="refresh" content="0; url=/digital-innovation/"><script>location.replace("/digital-innovation/"+location.search+location.hash)</script><meta name="robots" content="noindex"></head><body><p><a href="/digital-innovation/">Continue</a></p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-KORP Tool Index — 40 Audited Tools · Kaush</title>
+<meta name="description" content="The AI-KORP Tool Index: 40 AI tools audited across Creative, Spatial, Intellectual and Process baskets, each with a Ripeness status, focus area, risk category and EU AI Act guidance.">
+<link rel="canonical" href="https://kaushambimate.com/ai-korp-tool-index/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Kaush"><meta property="og:title" content="AI-KORP Tool Index — 40 Audited Tools · Kaush"><meta property="og:description" content="40 AI tools audited across Creative, Spatial, Intellectual and Process baskets, each with a Ripeness status and EU AI Act guidance.">
+<meta property="og:image" content="https://kaushambimate.com/assets/img/ai-korp-fig4-corridor.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0C0C0A">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Jost:wght@200;300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0C0C0A;--deep:#111110;--surface:#181816;--surface2:#1F1F1C;
+  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.10);
+  --beige:#F0EAE0;--beige-dim:rgba(240,234,224,.45);--warm-gray:#6E6A62;
+  --gold:#C4A96B;--gold-dim:rgba(196,169,107,.15);
+  --green:#4A8C5C;--green-dim:rgba(74,140,92,.18);
+  --amber:#C4854A;--amber-dim:rgba(196,133,74,.18);
+  --blue:#6B9BC4;
+  --mono:'JetBrains Mono',monospace;--serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--void);color:var(--beige);font-family:var(--sans);font-weight:300;}
+
+nav{position:sticky;top:0;z-index:700;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3rem;border-bottom:1px solid var(--border);background:rgba(12,12,10,.92);backdrop-filter:blur(14px);}
+.nav-logo{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--beige);text-decoration:none;display:flex;align-items:center;gap:.8rem;}
+.nav-logo .tag{color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--warm-gray);text-decoration:none;transition:color .3s;}
+.nav-links a:hover{color:var(--beige);}
+
+.wrap{max-width:1400px;margin:0 auto;padding:0 3rem;}
+
+/* hero */
+.hero{padding:4rem 0 2.5rem;border-bottom:1px solid var(--border);}
+.kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem;}
+.kicker::before{content:'';width:32px;height:1px;background:var(--warm-gray);}
+h1{font-family:var(--serif);font-size:clamp(2.4rem,5vw,4.2rem);font-weight:200;line-height:1;color:var(--beige);}
+h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{margin-top:1.2rem;max-width:680px;font-size:.82rem;line-height:2;color:var(--warm-gray);}
+.hero-stats{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:2rem;}
+.hstat{display:flex;flex-direction:column;gap:.2rem;}
+.hstat b{font-family:var(--mono);font-size:1.3rem;font-weight:300;color:var(--gold);}
+.hstat span{font-family:var(--mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--warm-gray);}
+.hero-links{margin-top:1.6rem;display:flex;gap:1.5rem;flex-wrap:wrap;}
+.hero-links a{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-decoration:none;color:var(--gold);border-bottom:1px solid rgba(196,169,107,.3);}
+.hero-links a:hover{border-color:var(--gold);}
+
+/* controls */
+.controls{position:sticky;top:65px;z-index:600;background:var(--void);border-bottom:1px solid var(--border);padding:1.2rem 0;}
+.controls-in{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;}
+#q{flex:1;min-width:220px;font:inherit;font-family:var(--mono);font-size:.68rem;color:var(--beige);background:var(--surface);border:1px solid var(--border2);padding:.6rem .9rem;outline:none;}
+#q::placeholder{color:var(--warm-gray);}
+#q:focus{border-color:var(--gold);}
+.filt{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .9rem;border:1px solid var(--border2);background:transparent;color:var(--warm-gray);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.filt:hover,.filt.active{background:var(--gold-dim);color:var(--gold);border-color:rgba(196,169,107,.35);}
+.filt.all.active{background:var(--surface2);color:var(--beige);}
+.count{font-family:var(--mono);font-size:.58rem;color:var(--warm-gray);margin-left:auto;white-space:nowrap;}
+
+/* table */
+.tbl-wrap{padding:1.5rem 0 5rem;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;min-width:1000px;}
+thead th{font-family:var(--mono);font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;color:var(--warm-gray);text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--border2);background:var(--void);}
+tbody td{padding:1rem .9rem;font-size:.72rem;line-height:1.7;border-bottom:1px solid var(--border);vertical-align:top;color:var(--warm-gray);}
+tbody tr:hover{background:var(--surface);}
+td.c-name{font-family:var(--mono);font-size:.72rem;color:var(--beige);white-space:nowrap;}
+td.c-basket{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;}
+.cat-creative{color:var(--gold);}.cat-spatial{color:var(--green);}.cat-intellectual{color:var(--blue);}.cat-process{color:var(--amber);}
+td.c-rip{white-space:nowrap;}
+.rip-badge{font-family:var(--mono);font-size:.55rem;padding:.2rem .55rem;border-radius:2px;display:inline-block;}
+.status-stored{background:var(--green-dim);color:var(--green);}
+.status-sorting{background:var(--amber-dim);color:var(--amber);}
+.status-source{background:var(--surface2);color:var(--warm-gray);border:1px solid var(--border2);}
+td.c-focus{max-width:280px;}
+td.c-risk{white-space:nowrap;font-family:var(--mono);font-size:.6rem;}
+td.c-euact{max-width:340px;font-size:.66rem;}
+.hidden-row{display:none;}
+
+/* footer */
+.footer-bar{border-top:1px solid var(--border);padding:1.4rem 0 2.5rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.55rem;color:var(--warm-gray);}
+.footer-bar a{color:var(--warm-gray);text-decoration:none;}
+.footer-bar a:hover{color:var(--beige);}
+
+@media(max-width:900px){
+  nav{padding:1.1rem 1.5rem;}
+  .nav-links{display:none;}
+  .wrap{padding:0 1.5rem;}
+  thead th{position:static;}
+  .controls{top:0;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://kaushambimate.com" class="nav-logo">
+    <span class="tag">&#x5B;</span> AI-KORP <span class="tag">&#x5D;</span>
+    &nbsp;·&nbsp; Tool Index
+  </a>
+  <ul class="nav-links">
+    <li><a href="/project-ai-korp/">Framework</a></li>
+    <li><a href="/ai-korp-neural-asset-archives/">Neural Archives</a></li>
+    <li><a href="https://kaushambimate.com/contact/">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+  <section class="hero">
+    <p class="kicker">Continuous Audit · Updated 2026</p>
+    <h1>Tool Index — <em>40 Audited.</em></h1>
+    <p class="hero-sub">A technical repository of every AI tool tested within the AI-KORP framework, each evaluated for architectural and design utility, implementation maturity (Ripeness), and EU AI Act guidance. Search or filter below — every row links back to the framework it belongs to.</p>
+    <div class="hero-stats">
+      <div class="hstat"><b>40</b><span>Tools audited</span></div>
+      <div class="hstat"><b>4</b><span>Baskets</span></div>
+      <div class="hstat"><b id="liveCount">40</b><span>Showing now</span></div>
+    </div>
+    <div class="hero-links">
+      <a href="/project-ai-korp/">← AI-KORP Framework</a>
+      <a href="/assets/docs/ai-korp-tools.csv">↓ Download full CSV</a>
+      <a href="https://github.com/archi-netizen/ai-korp-neural-archives" target="_blank" rel="noopener">GitHub Documentation ↗</a>
+    </div>
+  </section>
+
+  <div class="controls">
+    <div class="controls-in">
+      <input id="q" type="search" placeholder="Search tool name or focus…">
+      <button class="filt all active" data-f="all">All</button>
+      <button class="filt" data-f="creative">Creative</button>
+      <button class="filt" data-f="spatial">Spatial</button>
+      <button class="filt" data-f="intellectual">Intellectual</button>
+      <button class="filt" data-f="process">Process</button>
+      <button class="filt" data-f="stored">● Stored</button>
+      <button class="filt" data-f="sorting">◐ Sorting</button>
+      <button class="filt" data-f="source">○ Sourcing</button>
+      <span class="count"><span id="shownCount">40</span> of 40</span>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Basket</th>
+          <th>Tool</th>
+          <th>Ripeness</th>
+          <th>Focus / Best Use</th>
+          <th>Risk</th>
+          <th>EU AI Act Guidance</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"><!-- rows injected by JS --></tbody>
+    </table>
+  </div>
+
+  <div class="footer-bar">
+    <span>© 2026 Kaushambi Mate · AI-KORP Tool Index</span>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+      <a href="/project-ai-korp/">AI-KORP Framework</a>
+      <a href="/ai-korp-neural-asset-archives/">Neural Asset Archives</a>
+      <a href="https://github.com/archi-netizen/ai-korp-neural-archives" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://kaushambimate.com/contact/">Contact</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const tools = [
+  {name:'Microsoft Copilot',cat:'process',status:'stored',focus:'Evaluation of semantic search capabilities for spatial branding guidelines and international design standards. High efficiency in summarizing long-form technical environmental documentation and compliance files.',risk:'Limited Risk',euact:'Art. 13 Transparency: Disclose AI-generated summaries and recommendations. Fact-Check Requirement: Cross-reference outputs with original documents. Audit Trail: Retain prompt-response history for compliance review.'},
+  {name:'ChatGPT',cat:'process',status:'stored',focus:'Highly effective for writing environment-automation scripts (Python/VBA) and developing custom logic for spatial branding workflows.',risk:'Limited Risk',euact:'Art. 13 Transparency: Identify AI-generated scripts; manual validation of all generated code required for spatial accuracy.'},
+  {name:'Google Search AI-Mode',cat:'process',status:'stored',focus:'Comparative analysis of multi-step research queries. Useful for rapid material sourcing and manufacturer data gathering during the conceptual design phase.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Treat AI summaries as non-authoritative. Verification: Cross-check sources before use in technical decisions. PII Requirement: Do not enter personal or sensitive project data.'},
+  {name:'Gemini',cat:'intellectual',status:'stored',focus:'Analyzing site and environment photos to generate descriptive spatial metadata. High potential for environment-context analysis and physical touchpoint mapping.',risk:'Limited Risk',euact:'Art. 13 Transparency: Disclose AI-assisted analysis of site imagery. Fact-Check Requirement: Validate generated metadata against real-site data. Audit Trail: Retain inputs for traceability.'},
+  {name:'Google Lens',cat:'intellectual',status:'stored',focus:'Rapid identification of physical design elements and material sourcing through image-based information gathering.',risk:'Minimal Risk',euact:'Minimal Risk: Standard human review sufficient. PII Requirement: Avoid scanning sensitive or personal documents.'},
+  {name:'DeepL',cat:'intellectual',status:'stored',focus:'Professional linguistic refinement for global brand guidelines; recommended for use with anonymized datasets to ensure cross-market consistency.',risk:'Minimal Risk (Limited Risk in specific applications)',euact:'Art. 13 Transparency: AI-assisted translations must be reviewed. PII Requirement: Use anonymized data where possible. Quality Assurance: Validate technical terminology manually.'},
+  {name:'Claude',cat:'intellectual',status:'source',focus:'High-reasoning alternative for complex conceptualization and strategic drafting in Brand Design and Innovation consulting.',risk:'Limited Risk',euact:'Art. 13 Transparency: Label AI-generated outputs. Quality Assurance: Standard human review required. PII Requirement: Avoid confidential inputs.'},
+  {name:'Perplexity',cat:'intellectual',status:'stored',focus:'Information discovery and research with verifiable citations, ideal for grounding design strategies in current market data.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Treat outputs as AI-aggregated sources. Verification: Confirm cited references before use. Quality Assurance: Standard human review.'},
+  {name:'NotebookLM',cat:'intellectual',status:'stored',focus:'Personalized research assistant used to synthesize and make complex Environmental Graphic (EGD) guidelines accessible across different languages.',risk:'Limited Risk',euact:'Art. 13 Transparency: Identify AI-generated summaries from source documents. Audit Trail: Maintain linkage to original sources. Verification: Human validation required for guideline interpretation.'},
+  {name:'Khroma',cat:'intellectual',status:'source',focus:'Personalized Palette Generation: Training an AI on specific aesthetic preferences to generate infinite, brand-compliant color pairings that move beyond standard HEX presets.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Inform stakeholders that color palettes are AI-generated based on training data. Verification: Human designer must validate accessibility (WCAG) and brand suitability. Quality Assurance: Standard human review for color psychology alignment.'},
+  {name:'Midjourney',cat:'creative',status:'stored',focus:'Exploration of Branding prompts. High success in generating atmospheric environmental concepts based on cultural rhythm, materiality, and brand textures.',risk:'Limited Risk',euact:'Art. 50(2) Transparency: Label AI-generated imagery. Content Authenticity: Maintain metadata tagging. IP Safeguard: Avoid copyrighted design references. Verification: Human review before professional use.'},
+  {name:'DALL-E-3',cat:'creative',status:'sorting',focus:'Utilized for rapid ‘sketch-to-concept’ iterations. Precise adherence to specific geometric prompts, though visual scale often requires manual adjustment.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Clearly state that generated imagery is AI-produced. Content Authenticity: Maintain metadata tags (“AI-generated”) in exported images. IP Safeguard: Do not use copyrighted works as direct prompt seeds.'},
+  {name:'PromeAI',cat:'creative',status:'stored',focus:'Visual Identity Enhancement: Refining and stylizing environmental concepts to align with specific brand aesthetics and materiality profiles.',risk:'Minimal Risk',euact:'Art. 50(1) Disclosure: Inform stakeholders when render outputs are AI-assisted. Quality Assurance: Validate visual accuracy against design intent. Audit Trail: Retain prompt and rendering settings for reproducibility.'},
+  {name:'HeyGen AI',cat:'creative',status:'stored',focus:'Dynamic video generation and AI-driven avatars for presenting immersive brand experiences and digital innovation walkthroughs.',risk:'Limited Risk',euact:'Art. 50(2) Transparency: Label all AI-generated avatars/videos (watermark or disclaimer). Consent Requirement: Do not simulate real individuals without explicit authorization. PII Requirement: Avoid use of identifiable client data in avatars or voice models unless authorized.'},
+  {name:'Suno AI',cat:'creative',status:'stored',focus:'AI-powered audio generation to create custom soundscapes for physical installations and immersive brand environments.',risk:'Limited Risk',euact:'Art. 50(2) Transparency: Label AI-generated audio outputs. IP Compliance: Ensure music does not replicate copyrighted compositions. Usage Limitation: Do not use for branded content without licensing verification.'},
+  {name:'Adobe Firefly',cat:'creative',status:'sorting',focus:'Brand-Safe Generative Imagery: Creating high-fidelity, commercially cleared visual assets that can be "re-styled" to match a brand’s specific texture or lighting signature.',risk:'Minimal Risk (Limited Risk in specific applications)',euact:'Art. 50(1) Disclosure: Identify AI-assisted edits in design deliverables. Quality Assurance: Cross-check material/lighting outputs with real-world specs. Content Integrity: Use only licensed training datasets.'},
+  {name:'Presentations AI',cat:'creative',status:'stored',focus:'Rapidly generating high-stakes stakeholder decks for brand innovation proposals, utilizing automated layout engines to maintain brand consistency across complex environmental data sets.',risk:'Minimal Risk',euact:'Art. 13 Transparency: Clearly distinguish AI-generated slides from manually authored content. Quality Assurance: Manual validation of technical content required. Audit Trail: Retain generated drafts for internal reporting traceability.'},
+  {name:'Pitch.com',cat:'creative',status:'stored',focus:'Using the AI generator to draft structured narratives for environmental graphic design (EGD) pitches, ensuring a logical flow from environmental context to final spatial installation concepts.',risk:'Minimal Risk',euact:'Art. 13 Transparency: Disclose AI-assisted layout and storytelling elements. Quality Assurance: Ensure brand alignment and factual correctness. Verification: Human review mandatory for client presentations.'},
+  {name:'Figma AI',cat:'creative',status:'stored',focus:'Rapidly prototyping interactive digital layers (AR/Screens) that integrate into physical environments, utilizing brand-specific design tokens and validating responsive layouts for physical screen aspect ratios.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Indicate AI-generated UI/UX components where applicable. Quality Assurance: Validate accessibility and usability standards manually. Manual verification of responsive layouts for physical screen aspect ratios. Audit Trail: Log AI-assisted design iterations for version control.'},
+  {name:'Sora',cat:'creative',status:'stored',focus:'Generating hyper-realistic video walkthroughs of proposed brand environments to help stakeholders visualize the "vibe" and atmosphere of a physical installation before production.',risk:'Limited Risk',euact:'Art. 50(2) Transparency: Label AI-generated video content clearly. Content Risk Control: Avoid misleading spatial representations. Verification: Human validation required for visual realism and concept feasibility.'},
+  {name:'Fontjoy',cat:'creative',status:'source',focus:'Deep Learning Font Pairing: Finding the "perfect tension" between disparate typefaces (e.g., a vernacular-inspired serif paired with a brutalist sans-serif) for high-impact environmental signage.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Treat font pairings as AI-suggested layouts. IP Compliance: Ensure chosen fonts are properly licensed for commercial use. Quality Assurance: Manual validation of legibility and typographic hierarchy.'},
+  {name:'Recraft.ai',cat:'creative',status:'source',focus:'Scalable Brand Language: Generating consistent vector icon sets and illustrations for large-scale wall installations that maintain a specific stroke weight across a whole identity system.',risk:'Limited Risk',euact:'Art. 50(2) Transparency: Label AI-generated vector art with metadata or watermarks. Content Authenticity: Maintain logs of prompts for IP traceability. IP Safeguard: Avoid using copyrighted brand assets as direct prompt seeds.'},
+  {name:'Flair.ai',cat:'creative',status:'source',focus:'High-End Product Photography: Placing brand assets into hyper-realistic, AI-generated environments and installations without the cost of a physical photoshoot.',risk:'Limited Risk',euact:'Art. 50(2) Transparency: Disclose that product photography backgrounds and compositions are AI-generated. Content Integrity: Ensure environments do not misrepresent the physical properties of the actual product.'},
+  {name:'Looka',cat:'creative',status:'source',focus:'Rapid Identity Prototyping: Exploring "low-stakes" visual directions for startups to quickly see how a symbol translates across stationery and digital touchpoints.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Clearly state that logo designs are AI-produced. Verification: Human review of trademark uniqueness. Audit Trail: Retain generation history to support intellectual property claims.'},
+  {name:'Gemini CLI (LLM)',cat:'process',status:'stored',focus:'Command-line interface for integrating LLM intelligence into technical design workflows; ideal for batch processing metadata for large-scale environmental graphic packages.',risk:'Limited Risk',euact:'Art. 13 Transparency: Log AI-assisted code/script generation in technical workflows. Quality Assurance: Manual code review required. PII Requirement: Do not process confidential project data in unsecured environments.'},
+  {name:'Notion AI',cat:'process',status:'stored',focus:'Summarizing complex client briefs and environment-context documents into actionable task lists for the design production team to ensure seamless installation delivery.',risk:'Limited Risk',euact:'Art. 13 Transparency: Identify AI-generated summaries in documentation. PII Requirement: Restrict use with sensitive project or client data. Verification: Human validation required for decisions based on summaries.'},
+  {name:'SharePoint AI Agents',cat:'process',status:'sorting',focus:'Automating knowledge retrieval across complex global brand portfolios and installation archives to ensure consistency in physical touchpoint delivery across different regions.',risk:'Limited Risk',euact:'Art. 13 Transparency: Log automated decision-making processes. PII Requirement: Enforce strict access control to enterprise data sources. Human Oversight: Required for critical project decisions.'},
+  {name:'Google Workspace Studio',cat:'process',status:'stored',focus:'Automating data-heavy spreadsheets for large-scale environmental graphic packages and syncing them with brand-approved presentation templates for stakeholder reviews.',risk:'Limited Risk',euact:'Art. 13 Transparency: Disclose AI-assisted document generation. PII Requirement: Avoid uploading confidential or personal data. Quality Assurance: Manual validation of structured outputs (tables, reports).'},
+  {name:'Frontify (AI Assistant)',cat:'process',status:'source',focus:'Using the semantic brand assistant to verify if proposed environmental graphics and physical installation materials align with the "rules" defined in the core brand book.',risk:'Limited Risk',euact:'Art. 13 Transparency: Log AI-assisted search and guideline interpretations. Audit Trail: Maintain linkage between AI recommendations and the original Brand Book. Verification: Human brand manager validation required.'},
+  {name:'Revalu',cat:'spatial',status:'source',focus:'Utilizing AI to source low-carbon, high-innovation materials for physical installations, specifically cross-referencing brand requirements with material science and carbon-data.',risk:'Limited Risk',euact:'Art. 13 Transparency: Log database versions used for carbon and EPD analysis. Verification: Human validation of material assemblies and carbon calculations. Audit Trail: Document data sources and weighting logic.'},
+  {name:'QGIS + AI',cat:'spatial',status:'source',focus:'Mapping high-traffic pedestrian flow within urban environments to identify optimal locations for physical touchpoints and high-impact spatial branding installations.',risk:'Limited Risk',euact:'Art. 13 Transparency: Log AI models used for spatial classification. Verification: Cross-check outputs against ground-truth GIS data. Bias Control: Assess potential geographic bias in datasets.'},
+  {name:'Google Earth Engine',cat:'spatial',status:'stored',focus:'Analyzing long-term environmental patterns (e.g., sun exposure, vegetation) to inform the materiality and durability of large-scale outdoor spatial branding installations.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Public-facing sustainability or environmental reports must disclose use of AI/ML for large-scale data processing. Verification: Cross-check derived environmental indicators against authoritative datasets. PII Requirement: Ensure no personal or sensitive geospatial data is processed without anonymization. Audit Trail: Record processing scripts, model logic, and dataset versions used in raster/vector analysis.'},
+  {name:'Cove.tool',cat:'spatial',status:'source',focus:'Environmental Impact Reporting: Advising clients on the carbon footprint and energy efficiency of physical brand touchpoints (e.g., high-output LED signage or temporary installation materials) to align with ESG goals.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Inform clients that performance simulations include AI-assisted estimations. Verification: Human audit of input assumptions (loads, materials) is mandatory. Quality Assurance: Cross-check outputs against established environmental benchmarks.'},
+  {name:'Testfit',cat:'spatial',status:'source',focus:'Using algorithmic constraints to rapidly prototype how a brand’s modular "shop-in-shop" system can adapt to varying floor sizes and physical configurations across a global portfolio.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: State in feasibility studies that layouts are AI-generated. Quality Assurance: Manual verification of unit counts and spatial constraints required. Human Oversight: Design Lead must validate outputs before final strategy is set.'},
+  {name:'UrbanFootprint',cat:'spatial',status:'source',focus:'Analyzing environmental and socio-economic data to identify high-impact locations for temporary installations, flagship experiences, and pop-up brand activations in dense urban areas.',risk:'Limited Risk',euact:'Art. 13 Transparency: Maintain technical logs of datasets used in socio-economic modeling. Bias Control: Assess potential bias in demographic data inputs. Audit Trail: Record data-weighting methods and scoring logic.'},
+  {name:'Giraffe',cat:'spatial',status:'source',focus:'Strategic Location Design: Visualizing a brand\'s "physical footprint" across a city district to plan a cohesive multi-site visual identity and wayfinding strategy.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Inform stakeholders when financial forecasts are derived from generative spatial inputs. Verification: Cross-check financial outputs against independent models. Audit Trail: Record parameter linkages between geometry and strategy.'},
+  {name:'Chaos Veras',cat:'spatial',status:'sorting',focus:'Generating hyper-realistic "brand snapshots" that show how an identity system behaves on diverse materials like glass, metal, or fabric within a simulated physical environment.',risk:'Limited Risk',euact:'Art. 50(2) Compliance: AI-generated renders must include metadata tagging. Art. 50(1) Disclosure: Clients must be informed of AI use in conceptual visualization. Content Integrity: Avoid misleading representations of lighting conditions.'},
+  {name:'Autodesk Forma',cat:'spatial',status:'sorting',focus:'Predictive Signage Placement: Analyzing environmental microclimates (sunlight/wind) to optimize the visibility, orientation, and durability of physical brand installations in public spaces.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Technical reports must state that environmental simulations are AI-assisted. Verification: Cross-check critical outputs with secondary tools. Quality Assurance: Validate early-stage assumptions before production.'},
+  {name:'WiseBIM AI für Revit',cat:'spatial',status:'stored',focus:'Visual Asset Reconstruction: Transforming 2D environmental patterns and legacy street graphics into clean 3D assets for use in modern digital brand environments and immersive installations.',risk:'Limited Risk',euact:'Art. 50(1) Disclosure: Mandatory "Environment-Check" protocol to verify AI-generated geometry and assemblies. Verification: Human validation required for spatial accuracy and constructability.'},
+  {name:'Chaos Glyph',cat:'spatial',status:'stored',focus:'Automating the production of large-scale environmental graphics packages to ensure brand consistency across hundreds of technical production sheets for physical installations.',risk:'Limited Risk',euact:'Art. 13 Transparency: Technical logs must record all automated scripting and batch operations; manual spot-checks required for large datasets to prevent errors.'}
+];
+
+const tbody = document.getElementById('tbody');
+const STATUS_LABEL = {stored:'● Stored', sorting:'◐ Sorting', source:'○ Sourcing'};
+
+function render(list){
+  tbody.innerHTML = list.map(t => `
+    <tr>
+      <td class="c-basket cat-${t.cat}">${t.cat.toUpperCase()}</td>
+      <td class="c-name">${t.name}</td>
+      <td class="c-rip"><span class="rip-badge status-${t.status}">${STATUS_LABEL[t.status]}</span></td>
+      <td class="c-focus">${t.focus}</td>
+      <td class="c-risk">${t.risk}</td>
+      <td class="c-euact">${t.euact}</td>
+    </tr>
+  `).join('');
+  document.getElementById('shownCount').textContent = list.length;
+  document.getElementById('liveCount').textContent = list.length;
+}
+render(tools);
+
+let activeFilter = 'all';
+const q = document.getElementById('q');
+
+function apply(){
+  const term = q.value.trim().toLowerCase();
+  const list = tools.filter(t => {
+    const matchesFilter = activeFilter === 'all'
+      || t.cat === activeFilter
+      || t.status === activeFilter;
+    const matchesSearch = !term
+      || t.name.toLowerCase().includes(term)
+      || t.focus.toLowerCase().includes(term);
+    return matchesFilter && matchesSearch;
+  });
+  render(list);
+}
+
+document.querySelectorAll('.filt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filt').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.f;
+    apply();
+  });
+});
+q.addEventListener('input', apply);
+</script>
+</body>
+</html>
